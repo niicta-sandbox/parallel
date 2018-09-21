@@ -10,6 +10,7 @@ public class Buffer
     public Buffer(){
         fileEnded = false;
         filled = false;
+        string = EMPTY;
     }
 
     public boolean isFileEnded(){

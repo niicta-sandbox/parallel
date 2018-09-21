@@ -10,7 +10,7 @@ public class DeltaReader
         this.deltas = deltas;
     }
 
-    private void outputDeltas(){
+    public void outputDeltas(){
         int size = deltas.size();
         for (int i = 0; i < size && deltas.peek() >= 0; i++){
             System.out.println(String.format("difference between {0} strings is " + deltas.poll(), i));

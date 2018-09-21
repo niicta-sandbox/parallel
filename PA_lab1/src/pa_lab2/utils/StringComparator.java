@@ -14,8 +14,8 @@ public class StringComparator
         this.deltas = deltas;
     }
 
-    private void compare(){
-        while(!oneFileIsEnded()){
+    public void compare(){
+        do{
             int delta = 0;
             if (buffer1.isFilled() && buffer2.isFilled()){
                 String string1 = buffer1.extractString();
@@ -28,9 +28,12 @@ public class StringComparator
                         delta++;
                     }
                 }
+                deltas.add(delta);
             }
-            deltas.add(delta);
-        }
+            else{
+                Thread.yield();
+            }
+        }while(!oneFileIsEnded());
         Buffer remainingBuffer = getRemainingBuffer();
         deltas.add(-1);
         int delta = 0;
